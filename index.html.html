@@ -1,0 +1,2794 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vitality Plus | Premium Health & Fitness</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2c6fbb;
+            --primary-dark: #1e559c;
+            --secondary: #3cb371;
+            --secondary-dark: #2e8b57;
+            --accent: #ff7f50;
+            --accent-dark: #ff6347;
+            --light: #f8fafc;
+            --dark: #2d3748;
+            --gray: #718096;
+            --light-gray: #e2e8f0;
+            --card-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+            --neon-primary: 0 0 15px rgba(44, 111, 187, 0.5);
+            --neon-secondary: 0 0 15px rgba(60, 179, 113, 0.5);
+            --neon-accent: 0 0 15px rgba(255, 127, 80, 0.5);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background-color: #f9fafb;
+            color: var(--dark);
+            line-height: 1.6;
+            font-family: 'Open Sans', sans-serif;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 15px 0;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .logo h1 {
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+        
+        .logo i {
+            font-size: 32px;
+            color: var(--secondary);
+            text-shadow: var(--neon-secondary);
+            transition: all 0.3s ease;
+        }
+        
+        .logo:hover i {
+            transform: scale(1.1);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 5px 0;
+            font-size: 16px;
+        }
+        
+        nav a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--secondary);
+            transition: width 0.3s ease;
+        }
+        
+        nav a:hover {
+            color: var(--secondary);
+        }
+        
+        nav a:hover:after {
+            width: 100%;
+        }
+        
+        .auth-buttons {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .auth-btn {
+            padding: 10px 22px;
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            font-size: 14px;
+            letter-spacing: 0.5px;
+            backdrop-filter: blur(5px);
+        }
+        
+        .auth-btn:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-2px);
+            box-shadow: var(--neon-primary);
+        }
+        
+        .auth-btn.signup {
+            background: var(--secondary);
+            box-shadow: 0 4px 15px rgba(60, 179, 113, 0.3);
+        }
+        
+        .auth-btn.signup:hover {
+            background: var(--secondary-dark);
+            box-shadow: var(--neon-secondary);
+        }
+        
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 21px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+        }
+        
+        .hamburger span {
+            height: 3px;
+            width: 100%;
+            background-color: white;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            padding: 140px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(44, 111, 187, 0.3) 0%, rgba(60, 179, 113, 0.3) 100%);
+            z-index: 0;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .hero h2 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .hero p {
+            font-size: 20px;
+            margin: 0 auto 40px;
+            max-width: 600px;
+            font-weight: 300;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 16px 38px;
+            background-color: var(--secondary);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            letter-spacing: 0.5px;
+            box-shadow: 0 5px 20px rgba(60, 179, 113, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transform: translateX(-100%);
+        }
+        
+        .btn:hover {
+            background-color: var(--secondary-dark);
+            transform: translateY(-3px);
+            box-shadow: var(--neon-secondary);
+        }
+        
+        .btn:hover:after {
+            animation: shimmer 1.5s ease infinite;
+        }
+        
+        /* Tabs Section */
+        .tabs-container {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            margin: 80px auto;
+            max-width: 1000px;
+            animation: fadeIn 0.8s ease;
+        }
+        
+        .tabs {
+            display: flex;
+            background: var(--light);
+            border-bottom: 1px solid var(--light-gray);
+        }
+        
+        .tab-btn {
+            flex: 1;
+            padding: 22px;
+            background: none;
+            border: none;
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--gray);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .tab-btn.active {
+            color: var(--primary);
+            background: white;
+        }
+        
+        .tab-btn:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--primary);
+            transform: scaleX(0);
+            transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+        
+        .tab-btn.active:after {
+            transform: scaleX(1);
+        }
+        
+        .tab-btn i {
+            margin-right: 10px;
+            font-size: 20px;
+        }
+        
+        .tab-content {
+            display: none;
+            padding: 50px 40px;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        /* Goals Section */
+        .section-title {
+            text-align: center;
+            margin: 60px 0 50px;
+            font-size: 36px;
+            color: var(--dark);
+            position: relative;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards;
+            animation-delay: 0.3s;
+        }
+        
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--secondary);
+            margin: 20px auto;
+            border-radius: 2px;
+            box-shadow: var(--neon-secondary);
+        }
+        
+        .goals-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        .goal-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+            position: relative;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards;
+        }
+        
+        .goal-card:nth-child(1) { animation-delay: 0.1s; }
+        .goal-card:nth-child(2) { animation-delay: 0.2s; }
+        .goal-card:nth-child(3) { animation-delay: 0.3s; }
+        .goal-card:nth-child(4) { animation-delay: 0.4s; }
+        .goal-card:nth-child(5) { animation-delay: 0.5s; }
+        .goal-card:nth-child(6) { animation-delay: 0.6s; }
+        
+        .goal-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15), var(--neon-secondary);
+        }
+        
+        .goal-icon {
+            background: linear-gradient(135deg, var(--light-gray) 0%, #e6eeff 100%);
+            padding: 35px 0;
+            font-size: 60px;
+            color: var(--primary);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 180px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .goal-icon:after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0));
+            transform: rotate(30deg);
+        }
+        
+        .goal-card:hover .goal-icon {
+            transform: scale(1.05);
+            color: var(--secondary);
+            text-shadow: var(--neon-secondary);
+        }
+        
+        .goal-content {
+            padding: 28px;
+        }
+        
+        .goal-content h3 {
+            margin-bottom: 15px;
+            color: var(--dark);
+            font-size: 22px;
+            transition: color 0.3s;
+        }
+        
+        .goal-card:hover .goal-content h3 {
+            color: var(--primary);
+        }
+        
+        .goal-content p {
+            color: var(--gray);
+            font-size: 16px;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        /* Reviews Section */
+        .reviews {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .reviews:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://www.transparenttextures.com/patterns/diagmonds.png');
+            opacity: 0.05;
+        }
+        
+        .reviews-container {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .reviews-slider {
+            display: flex;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            gap: 30px;
+            padding: 30px 10px;
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none; /* IE and Edge */
+        }
+        
+        .reviews-slider::-webkit-scrollbar {
+            display: none; /* Chrome, Safari and Opera */
+        }
+        
+        .review-card {
+            flex: 0 0 calc(33.333% - 20px);
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 30px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            min-width: 320px;
+        }
+        
+        .review-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2), var(--neon-primary);
+        }
+        
+        .reviewer {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .reviewer-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 15px;
+            border: 3px solid var(--secondary);
+            box-shadow: var(--neon-secondary);
+        }
+        
+        .reviewer-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .reviewer-info h4 {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+        
+        .reviewer-info p {
+            color: #cbd5e0;
+            font-size: 14px;
+        }
+        
+        .stars {
+            color: #ffc107;
+            margin-bottom: 15px;
+        }
+        
+        .review-text {
+            line-height: 1.6;
+            font-style: italic;
+        }
+        
+        .slider-controls {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 40px;
+        }
+        
+        .slider-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
+        
+        .slider-btn:hover {
+            background: var(--secondary);
+            transform: translateY(-3px);
+            box-shadow: var(--neon-secondary);
+        }
+        
+        /* Features Section */
+        .features {
+            background: var(--light);
+            color: var(--dark);
+            padding: 100px 0;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+        
+        .feature-item {
+            text-align: center;
+            padding: 40px 30px;
+            background: white;
+            border-radius: 16px;
+            transition: all 0.4s ease;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards;
+            box-shadow: var(--card-shadow);
+        }
+        
+        .feature-item:nth-child(1) { animation-delay: 0.1s; }
+        .feature-item:nth-child(2) { animation-delay: 0.2s; }
+        .feature-item:nth-child(3) { animation-delay: 0.3s; }
+        .feature-item:nth-child(4) { animation-delay: 0.4s; }
+        
+        .feature-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15), var(--neon-secondary);
+        }
+        
+        .feature-item i {
+            font-size: 50px;
+            color: var(--secondary);
+            margin-bottom: 25px;
+            transition: all 0.4s ease;
+        }
+        
+        .feature-item:hover i {
+            transform: scale(1.2) rotate(5deg);
+            color: var(--primary);
+        }
+        
+        .feature-item h3 {
+            margin-bottom: 20px;
+            font-size: 22px;
+            font-weight: 600;
+        }
+        
+        .feature-item p {
+            line-height: 1.6;
+            color: var(--gray);
+        }
+        
+        /* Auth Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            backdrop-filter: blur(5px);
+        }
+        
+        .modal.active {
+            display: flex;
+            opacity: 1;
+        }
+        
+        .modal-content {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            width: 90%;
+            max-width: 450px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+            transform: translateY(30px) scale(0.95);
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .modal.active .modal-content {
+            transform: translateY(0) scale(1);
+        }
+        
+        .modal-content:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+        }
+        
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        
+        .modal-header h2 {
+            color: var(--primary);
+            font-size: 28px;
+            font-weight: 700;
+        }
+        
+        .close-modal {
+            background: none;
+            border: none;
+            font-size: 28px;
+            cursor: pointer;
+            color: var(--gray);
+            transition: all 0.3s ease;
+        }
+        
+        .close-modal:hover {
+            color: var(--accent);
+            transform: rotate(90deg);
+        }
+        
+        .auth-form {
+            position: relative;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 16px 20px;
+            border: 1px solid var(--light-gray);
+            border-radius: 10px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            font-family: 'Open Sans', sans-serif;
+        }
+        
+        .form-group input:focus {
+            border-color: var(--primary);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(44, 111, 187, 0.2);
+        }
+        
+        .form-group.error input {
+            border-color: var(--accent);
+        }
+        
+        .error-message {
+            color: var(--accent);
+            font-size: 14px;
+            margin-top: 5px;
+            display: none;
+            font-weight: 500;
+        }
+        
+        .form-group.error .error-message {
+            display: block;
+        }
+        
+        .auth-form button {
+            width: 100%;
+            padding: 16px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Montserrat', sans-serif;
+            margin-top: 10px;
+        }
+        
+        .auth-form button:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--neon-primary);
+        }
+        
+        .auth-switch {
+            text-align: center;
+            margin-top: 30px;
+            color: var(--gray);
+            font-size: 15px;
+        }
+        
+        .auth-switch a {
+            color: var(--primary);
+            text-decoration: none;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .auth-switch a:hover {
+            color: var(--secondary);
+            text-decoration: underline;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 80px 0 40px;
+            position: relative;
+        }
+        
+        footer:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 50px;
+            margin-bottom: 60px;
+        }
+        
+        .footer-column h3 {
+            font-size: 22px;
+            margin-bottom: 25px;
+            color: var(--secondary);
+            position: relative;
+            display: inline-block;
+            font-weight: 600;
+        }
+        
+        .footer-column h3:after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--secondary);
+            border-radius: 2px;
+            box-shadow: var(--neon-secondary);
+        }
+        
+        .footer-column p {
+            color: #cbd5e0;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-column a {
+            color: #cbd5e0;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        
+        .footer-column a:hover {
+            color: var(--secondary);
+            transform: translateX(5px);
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+            justify-content: center;
+        }
+        
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: all 0.3s ease;
+            font-size: 18px;
+        }
+        
+        .social-icons a:hover {
+            background: var(--secondary);
+            transform: translateY(-5px);
+            box-shadow: var(--neon-secondary);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #a0aec0;
+            font-size: 15px;
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes fadeInUp {
+            from { 
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .container {
+                padding: 0 30px;
+            }
+            
+            .review-card {
+                flex: 0 0 calc(50% - 15px);
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .hero h2 {
+                font-size: 40px;
+            }
+            
+            nav ul {
+                gap: 20px;
+            }
+            
+            .review-card {
+                flex: 0 0 calc(50% - 15px);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+            
+            nav {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background: var(--primary-dark);
+                padding: 20px;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+                transform: translateY(-100%);
+                opacity: 0;
+                transition: all 0.3s ease;
+                z-index: 999;
+            }
+            
+            nav.active {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .auth-buttons {
+                display: none;
+            }
+            
+            .auth-buttons.mobile {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                margin-top: 20px;
+            }
+            
+            .hamburger {
+                display: flex;
+            }
+            
+            .hamburger.active span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+            
+            .hamburger.active span:nth-child(2) {
+                opacity: 0;
+            }
+            
+            .hamburger.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(7px, -6px);
+            }
+            
+            .hero {
+                padding: 100px 0;
+                background-attachment: scroll;
+            }
+            
+            .hero h2 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+            
+            .tabs {
+                flex-direction: column;
+            }
+            
+            .tab-btn {
+                padding: 18px;
+            }
+            
+            .goal-card, .card {
+                max-width: 450px;
+                margin: 0 auto;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 40px;
+            }
+            
+            .footer-column h3:after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            
+            .review-card {
+                flex: 0 0 100%;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .container {
+                padding: 0 20px;
+            }
+            
+            .tab-content {
+                padding: 30px 20px;
+            }
+            
+            .modal-content {
+                padding: 30px 25px;
+            }
+            
+            .auth-buttons.mobile {
+                width: 100%;
+            }
+            
+            .auth-btn {
+                width: 100%;
+                text-align: center;
+            }
+            
+            .section-title {
+                font-size: 30px;
+            }
+            
+            .goal-content, .card-content {
+                padding: 20px;
+            }
+            
+            .feature-item {
+                padding: 30px 20px;
+            }
+            
+            .review-card {
+                min-width: 250px;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-heartbeat"></i>
+                    <h1>Vitality Plus</h1>
+                </div>
+                <nav id="main-nav">
+                    <ul>
+                        <li><a href="#home" class="nav-link">Home</a></li>
+                        <li><a href="#tabs" class="nav-link">Programs</a></li>
+                        <li><a href="#reviews" class="nav-link">Reviews</a></li>
+                        <li><a href="#features" class="nav-link">Features</a></li>
+                        <li><a href="#footer" class="nav-link">Contact</a></li>
+                    </ul>
+                    <div class="auth-buttons mobile">
+                        <button class="auth-btn login-btn" onclick="openModal('login')">Login</button>
+                        <button class="auth-btn signup" onclick="openModal('signup')">Sign Up</button>
+                    </div>
+                </nav>
+                <div class="auth-buttons">
+                    <button class="auth-btn login-btn" onclick="openModal('login')">Login</button>
+                    <button class="auth-btn signup" onclick="openModal('signup')">Sign Up</button>
+                </div>
+                <button class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h2>Transform Your Health & Fitness Journey</h2>
+                <p>Personalized diet and workout plans with visual guides tailored to your goals</p>
+                <a href="#tabs" class="btn">Explore Plans</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tabs Section -->
+    <section id="tabs" class="container">
+        <div class="tabs-container">
+            <div class="tabs">
+                <button class="tab-btn active" data-tab="gym">
+                    <i class="fas fa-dumbbell"></i> Gym & Fitness
+                </button>
+                <button class="tab-btn" data-tab="healthcare">
+                    <i class="fas fa-heartbeat"></i> Healthcare & Nutrition
+                </button>
+            </div>
+            
+            <div class="tab-content active" id="gym-content">
+                <h2 class="section-title">Fitness Goals</h2>
+                <div class="goals-container">
+                    <div class="goal-card" data-goal="six-pack">
+                        <div class="goal-icon">
+                            <i class="fas fa-dumbbell"></i>
+                        </div>
+                        <div class="goal-content">
+                            <h3>Build Six Pack Abs</h3>
+                            <p>Targeted workouts and nutrition plan for defined abdominal muscles</p>
+                            <button class="btn" onclick="openPlan('six-pack')">View Plan</button>
+                        </div>
+                    </div>
+                    
+                    <div class="goal-card" data-goal="muscle-gain">
+                        <div class="goal-icon">
+                            <i class="fas fa-weight"></i>
+                        </div>
+                        <div class="goal-content">
+                            <h3>Muscle Gain</h3>
+                            <p>Strength training and calorie surplus diet for muscle growth</p>
+                            <button class="btn" onclick="openPlan('muscle-gain')">View Plan</button>
+                        </div>
+                    </div>
+                    
+                    <div class="goal-card" data-goal="weight-loss">
+                        <div class="goal-icon">
+                            <i class="fas fa-running"></i>
+                        </div>
+                        <div class="goal-content">
+                            <h3>Weight Loss</h3>
+                            <p>Calorie deficit diet and fat-burning workouts</p>
+                            <button class="btn" onclick="openPlan('weight-loss')">View Plan</button>
+                        </div>
+                    </div>
+
+                    <div class="goal-card" data-goal="strength-training">
+                        <div class="goal-icon">
+                            <i class="fas fa-dumbbell"></i>
+                        </div>
+                        <div class="goal-content">
+                            <h3>Strength Training</h3>
+                            <p>Build functional strength with compound movements</p>
+                            <button class="btn" onclick="openPlan('strength-training')">View Plan</button>
+                        </div>
+                    </div>
+
+                    <div class="goal-card" data-goal="cardio-stamina">
+                        <div class="goal-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <div class="goal-content">
+                            <h3>Cardio Stamina</h3>
+                            <p>Improve endurance with targeted cardiovascular training</p>
+                            <button class="btn" onclick="openPlan('cardio-stamina')">View Plan</button>
+                        </div>
+                    </div>
+
+                    <div class="goal-card" data-goal="full-body">
+                        <div class="goal-icon">
+                            <i class="fas fa-running"></i>
+                        </div>
+                        <div class="goal-content">
+                            <h3>Full Body Workout</h3>
+                            <p>Complete fitness program for overall body transformation</p>
+                            <button class="btn" onclick="openPlan('full-body')">View Plan</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tab-content" id="healthcare-content">
+                <h2 class="section-title">Healthcare Goals</h2>
+                <div class="goals-container">
+                    <div class="goal-card" data-goal="immunity">
+                        <div class="goal-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="goal-content">
+                            <h3>Immunity Boost</h3>
+                            <p>Strengthen your immune system with targeted nutrition</p>
+                            <button class="btn" onclick="openPlan('immunity')">View Plan</button>
+                        </div>
+                    </div>
+                    
+                    <div class="goal-card" data-goal="skin-glow">
+                        <div class="goal-icon">
+                            <i class="fas fa-spa"></i>
+                        </div>
+                        <div class="goal-content">
+                            <h3>Skin Glow</h3>
+                            <p>Nutrition plan for radiant, healthy skin</p>
+                            <button class="btn" onclick="openPlan('skin-glow')">View Plan</button>
+                        </div>
+                    </div>
+                    
+                    <div class="goal-card" data-goal="heart-health">
+                        <div class="goal-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <div class="goal-content">
+                            <h3>Heart Health</h3>
+                            <p>Diet and exercise for cardiovascular wellness</p>
+                            <button class="btn" onclick="openPlan('heart-health')">View Plan</button>
+                        </div>
+                    </div>
+
+                    <div class="goal-card" data-goal="stress-relief">
+                        <div class="goal-icon">
+                            <i class="fas fa-cloud-sun"></i>
+                        </div>
+                        <div class="goal-content">
+                            <h3>Stress Relief</h3>
+                            <p>Techniques and nutrition to reduce stress</p>
+                            <button class="btn" onclick="openPlan('stress-relief')">View Plan</button>
+                        </div>
+                    </div>
+
+                    <div class="goal-card" data-goal="sleep-improvement">
+                        <div class="goal-icon">
+                            <i class="fas fa-bed"></i>
+                        </div>
+                        <div class="goal-content">
+                            <h3>Sleep Improvement</h3>
+                            <p>Better sleep through diet and lifestyle changes</p>
+                            <button class="btn" onclick="openPlan('sleep-improvement')">View Plan</button>
+                        </div>
+                    </div>
+
+                    <div class="goal-card" data-goal="digestive-health">
+                        <div class="goal-icon">
+                            <i class="fas fa-apple-alt"></i>
+                        </div>
+                        <div class="goal-content">
+                            <h3>Digestive Health</h3>
+                            <p>Nutrition plan for optimal gut health</p>
+                            <button class="btn" onclick="openPlan('digestive-health')">View Plan</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="reviews" id="reviews">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">What People Say</h2>
+            <div class="reviews-container">
+                <div class="reviews-slider" id="reviews-slider">
+                    <div class="review-card">
+                        <div class="reviewer">
+                            <div class="reviewer-avatar">
+                                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="John Doe">
+                            </div>
+                            <div class="reviewer-info">
+                                <h4>John Doe</h4>
+                                <p>Fitness Enthusiast</p>
+                            </div>
+                        </div>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="review-text">"The Six Pack Abs plan transformed my body in just 3 months. The diet recommendations were easy to follow and the workouts were challenging but effective. Highly recommend!"</p>
+                    </div>
+                    
+                    <div class="review-card">
+                        <div class="reviewer">
+                            <div class="reviewer-avatar">
+                                <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Johnson">
+                            </div>
+                            <div class="reviewer-info">
+                                <h4>Sarah Johnson</h4>
+                                <p>Health Coach</p>
+                            </div>
+                        </div>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <p class="review-text">"As a health professional, I'm impressed with the scientific approach of these plans. The healthcare nutrition section is particularly well-researched and practical for everyday life."</p>
+                    </div>
+                    
+                    <div class="review-card">
+                        <div class="reviewer">
+                            <div class="reviewer-avatar">
+                                <img src="https://randomuser.me/api/portraits/men/62.jpg" alt="Michael Chen">
+                            </div>
+                            <div class="reviewer-info">
+                                <h4>Michael Chen</h4>
+                                <p>Bodybuilder</p>
+                            </div>
+                        </div>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="review-text">"The muscle gain program helped me break through my plateau. The combination of diet and specific workout targeting different muscle groups delivered real results."</p>
+                    </div>
+                    
+                    <div class="review-card">
+                        <div class="reviewer">
+                            <div class="reviewer-avatar">
+                                <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Emma Wilson">
+                            </div>
+                            <div class="reviewer-info">
+                                <h4>Emma Wilson</h4>
+                                <p>Yoga Instructor</p>
+                            </div>
+                        </div>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                        <p class="review-text">"I love the holistic approach to health. The sleep and recovery tips have significantly improved my energy levels, and the workouts complement my yoga practice perfectly."</p>
+                    </div>
+                </div>
+                
+                <div class="slider-controls">
+                    <button class="slider-btn" id="prev-review">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="slider-btn" id="next-review">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2 class="section-title">Why Choose Our Plans</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <i class="fas fa-clipboard-check"></i>
+                    <h3>Expert Designed</h3>
+                    <p>Created by certified nutritionists and trainers with years of experience</p>
+                </div>
+                
+                <div class="feature-item">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Proven Results</h3>
+                    <p>Thousands of success stories from our satisfied clients worldwide</p>
+                </div>
+                
+                <div class="feature-item">
+                    <i class="fas fa-user-cog"></i>
+                    <h3>Personalized</h3>
+                    <p>Tailored to your specific goals, needs, and fitness level</p>
+                </div>
+                
+                <div class="feature-item">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h3>Always Accessible</h3>
+                    <p>Access your plan anytime, anywhere on any device</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Auth Modals -->
+    <div class="modal" id="login-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Login</h2>
+                <button class="close-modal" onclick="closeModal()">&times;</button>
+            </div>
+            <form class="auth-form" id="login-form">
+                <div class="form-group">
+                    <input type="text" placeholder="Username or Email" id="login-username" required>
+                    <div class="error-message" id="login-username-error"></div>
+                </div>
+                <div class="form-group">
+                    <input type="password" placeholder="Password" id="login-password" required>
+                    <div class="error-message" id="login-password-error"></div>
+                </div>
+                <button type="submit">Login</button>
+            </form>
+            <div class="auth-switch">
+                Don't have an account? <a onclick="switchAuth('signup')">Sign Up</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="signup-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Create Account</h2>
+                <button class="close-modal" onclick="closeModal()">&times;</button>
+            </div>
+            <form class="auth-form" id="signup-form">
+                <div class="form-group">
+                    <input type="text" placeholder="Full Name" id="signup-name" required>
+                    <div class="error-message" id="signup-name-error"></div>
+                </div>
+                <div class="form-group">
+                    <input type="text" placeholder="Username" id="signup-username" required>
+                    <div class="error-message" id="signup-username-error"></div>
+                </div>
+                <div class="form-group">
+                    <input type="email" placeholder="Email" id="signup-email" required>
+                    <div class="error-message" id="signup-email-error"></div>
+                </div>
+                <div class="form-group">
+                    <input type="password" placeholder="Password" id="signup-password" required>
+                    <div class="error-message" id="signup-password-error"></div>
+                </div>
+                <div class="form-group">
+                    <input type="password" placeholder="Confirm Password" id="signup-confirm" required>
+                    <div class="error-message" id="signup-confirm-error"></div>
+                </div>
+                <button type="submit">Sign Up</button>
+            </form>
+            <div class="auth-switch">
+                Already have an account? <a onclick="switchAuth('login')">Login</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Vitality Plus</h3>
+                    <p>Your journey to better health and fitness starts here. We provide personalized plans to help you achieve your goals.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#tabs">Programs</a></li>
+                        <li><a href="#reviews">Reviews</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#footer">About Us</a></li>
+                        <li><a href="#footer">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="#footer">FAQ</a></li>
+                        <li><a href="#footer">Privacy Policy</a></li>
+                        <li><a href="#footer">Terms of Service</a></li>
+                        <li><a href="#footer">Refund Policy</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Fitness St, Health City</li>
+                        <li><i class="fas fa-phone"></i> (123) 456-7890</li>
+                        <li><i class="fas fa-envelope"></i> info@vitalityplus.com</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Vitality Plus. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize animations
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate elements on scroll
+            const animatedElements = document.querySelectorAll('.goal-card, .feature-item');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animationPlayState = 'running';
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            animatedElements.forEach(el => {
+                observer.observe(el);
+            });
+            
+            // Initialize reviews slider
+            initReviewsSlider();
+            
+            // Initialize mobile navigation
+            initMobileNav();
+            
+            // Initialize smooth scrolling
+            initSmoothScrolling();
+        });
+        
+        // Mobile navigation
+        function initMobileNav() {
+            const hamburger = document.getElementById('hamburger');
+            const nav = document.getElementById('main-nav');
+            
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                nav.classList.toggle('active');
+            });
+            
+            // Close menu when clicking on links
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    hamburger.classList.remove('active');
+                    nav.classList.remove('active');
+                });
+            });
+        }
+        
+        // Smooth scrolling
+        function initSmoothScrolling() {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        }
+        
+        // Tab functionality
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
+        
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const tabId = btn.getAttribute('data-tab');
+                
+                // Update active tab button
+                tabBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                
+                // Show active tab content with animation
+                tabContents.forEach(content => {
+                    content.classList.remove('active');
+                    content.style.opacity = 0;
+                });
+                
+                setTimeout(() => {
+                    document.getElementById(`${tabId}-content`).classList.add('active');
+                    document.getElementById(`${tabId}-content`).style.opacity = 1;
+                }, 300);
+            });
+        });
+        
+        // Open plan in new tab
+        function openPlan(planName) {
+            // Create a new window with the plan details
+            const planWindow = window.open('', '_blank');
+            
+            // Get plan data based on the plan name
+            const planData = getPlanData(planName);
+            
+            // Write the HTML content to the new window
+            planWindow.document.write(`
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>${planData.title} | Vitality Plus</title>
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+                    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+                    <style>
+                        :root {
+                            --primary: #2c6fbb;
+                            --primary-dark: #1e559c;
+                            --secondary: #3cb371;
+                            --secondary-dark: #2e8b57;
+                            --accent: #ff7f50;
+                            --accent-dark: #ff6347;
+                            --light: #f8fafc;
+                            --dark: #2d3748;
+                            --gray: #718096;
+                            --light-gray: #e2e8f0;
+                            --card-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+                            --neon-primary: 0 0 15px rgba(44, 111, 187, 0.5);
+                            --neon-secondary: 0 0 15px rgba(60, 179, 113, 0.5);
+                            --neon-accent: 0 0 15px rgba(255, 127, 80, 0.5);
+                        }
+                        
+                        * {
+                            margin: 0;
+                            padding: 0;
+                            box-sizing: border-box;
+                        }
+                        
+                        body {
+                            background-color: #f9fafb;
+                            color: var(--dark);
+                            line-height: 1.6;
+                            font-family: 'Open Sans', sans-serif;
+                            overflow-x: hidden;
+                            padding: 20px;
+                        }
+                        
+                        h1, h2, h3, h4, h5, h6 {
+                            font-family: 'Montserrat', sans-serif;
+                            font-weight: 600;
+                        }
+                        
+                        .container {
+                            width: 100%;
+                            max-width: 1200px;
+                            margin: 0 auto;
+                            padding: 0 20px;
+                        }
+                        
+                        .plan-header {
+                            text-align: center;
+                            margin: 40px 0;
+                        }
+                        
+                        .plan-header h1 {
+                            font-size: 36px;
+                            color: var(--primary);
+                            margin-bottom: 20px;
+                        }
+                        
+                        .plan-header p {
+                            font-size: 18px;
+                            color: var(--gray);
+                            max-width: 800px;
+                            margin: 0 auto;
+                        }
+                        
+                        .cards-grid {
+                            display: grid;
+                            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+                            gap: 30px;
+                            margin: 40px 0;
+                        }
+                        
+                        .card {
+                            background: white;
+                            border-radius: 16px;
+                            overflow: hidden;
+                            box-shadow: var(--card-shadow);
+                            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                            position: relative;
+                            opacity: 0;
+                            animation: fadeInUp 0.6s ease forwards;
+                        }
+                        
+                        .card:nth-child(1) { animation-delay: 0.1s; }
+                        .card:nth-child(2) { animation-delay: 0.2s; }
+                        .card:nth-child(3) { animation-delay: 0.3s; }
+                        
+                        .card:hover {
+                            transform: translateY(-8px);
+                            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15), var(--neon-secondary);
+                        }
+                        
+                        .card-img {
+                            height: 200px;
+                            overflow: hidden;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            background: linear-gradient(135deg, var(--light-gray) 0%, #e6eeff 100%);
+                            transition: all 0.4s ease;
+                            position: relative;
+                        }
+                        
+                        .card-img:before {
+                            content: '';
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            width: 100%;
+                            height: 100%;
+                            background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.05));
+                        }
+                        
+                        .card:hover .card-img {
+                            transform: scale(1.03);
+                        }
+                        
+                        .card-img i {
+                            font-size: 80px;
+                            color: var(--primary);
+                            transition: all 0.4s ease;
+                            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+                        }
+                        
+                        .card:hover .card-img i {
+                            transform: scale(1.15);
+                            color: var(--secondary);
+                            text-shadow: var(--neon-secondary);
+                        }
+                        
+                        .card-content {
+                            padding: 28px;
+                        }
+                        
+                        .card-content h3 {
+                            color: var(--primary);
+                            margin-bottom: 15px;
+                            font-size: 22px;
+                            transition: color 0.3s;
+                        }
+                        
+                        .card:hover .card-content h3 {
+                            color: var(--secondary);
+                        }
+                        
+                        .card-content p {
+                            color: var(--gray);
+                            margin-bottom: 20px;
+                            font-size: 16px;
+                            line-height: 1.6;
+                        }
+                        
+                        .card-details {
+                            background: var(--light);
+                            padding: 20px;
+                            border-radius: 12px;
+                            margin-top: 20px;
+                            transition: all 0.3s ease;
+                            border-left: 4px solid var(--secondary);
+                        }
+                        
+                        .card:hover .card-details {
+                            background: rgba(60, 179, 113, 0.08);
+                            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+                        }
+                        
+                        .card-details h4 {
+                            color: var(--secondary);
+                            margin-bottom: 12px;
+                            font-size: 17px;
+                            display: flex;
+                            align-items: center;
+                            gap: 10px;
+                        }
+                        
+                        .card-details h4 i {
+                            font-size: 20px;
+                        }
+                        
+                        .card-details ul {
+                            padding-left: 24px;
+                            color: var(--gray);
+                        }
+                        
+                        .card-details li {
+                            margin-bottom: 8px;
+                            font-size: 15px;
+                            position: relative;
+                        }
+                        
+                        .card-details li:before {
+                            content: '•';
+                            color: var(--secondary);
+                            font-weight: bold;
+                            display: inline-block;
+                            width: 1em;
+                            margin-left: -1em;
+                        }
+                        
+                        .card-actions {
+                            display: flex;
+                            justify-content: space-between;
+                            margin-top: 25px;
+                        }
+                        
+                        .card-btn {
+                            padding: 12px 20px;
+                            background: var(--light);
+                            border: none;
+                            border-radius: 30px;
+                            color: var(--dark);
+                            font-size: 14px;
+                            cursor: pointer;
+                            transition: all 0.3s ease;
+                            display: flex;
+                            align-items: center;
+                            gap: 8px;
+                            font-weight: 500;
+                        }
+                        
+                        .card-btn:hover {
+                            background: var(--primary);
+                            color: white;
+                            transform: translateY(-2px);
+                            box-shadow: var(--neon-primary);
+                        }
+                        
+                        .card-btn.save {
+                            background: rgba(60, 179, 113, 0.15);
+                            color: var(--secondary);
+                        }
+                        
+                        .card-btn.save:hover {
+                            background: var(--secondary);
+                            color: white;
+                            box-shadow: var(--neon-secondary);
+                        }
+                        
+                        .download-btn {
+                            position: absolute;
+                            top: 20px;
+                            right: 20px;
+                            width: 42px;
+                            height: 42px;
+                            border-radius: 50%;
+                            background: white;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            color: var(--primary);
+                            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+                            cursor: pointer;
+                            transition: all 0.3s ease;
+                            opacity: 1;
+                            transform: translateY(0);
+                            z-index: 2;
+                        }
+                        
+                        .download-btn:hover {
+                            background: var(--primary);
+                            color: white;
+                            transform: scale(1.1);
+                            box-shadow: var(--neon-primary);
+                        }
+                        
+                        .back-btn {
+                            display: inline-flex;
+                            align-items: center;
+                            gap: 8px;
+                            padding: 12px 24px;
+                            background: var(--primary);
+                            color: white;
+                            text-decoration: none;
+                            border-radius: 30px;
+                            font-weight: 500;
+                            transition: all 0.3s ease;
+                            margin-top: 30px;
+                        }
+                        
+                        .back-btn:hover {
+                            background: var(--primary-dark);
+                            transform: translateY(-2px);
+                            box-shadow: var(--neon-primary);
+                        }
+                        
+                        @keyframes fadeInUp {
+                            from { 
+                                opacity: 0;
+                                transform: translateY(30px);
+                            }
+                            to { 
+                                opacity: 1;
+                                transform: translateY(0);
+                            }
+                        }
+                        
+                        @media (max-width: 768px) {
+                            .cards-grid {
+                                grid-template-columns: 1fr;
+                            }
+                            
+                            .plan-header h1 {
+                                font-size: 30px;
+                            }
+                        }
+                    </style>
+                </head>
+                <body>
+                    <div class="container">
+                        <div class="plan-header">
+                            <h1>${planData.title}</h1>
+                            <p>${planData.description}</p>
+                        </div>
+                        
+                        <div class="cards-grid">
+                            ${planData.cards.map(card => `
+                                <div class="card">
+                                    <div class="card-img">
+                                        <i class="${card.icon}"></i>
+                                    </div>
+                                    <div class="download-btn" onclick="downloadChart('${planData.title} - ${card.title}')">
+                                        <i class="fas fa-download"></i>
+                                    </div>
+                                    <div class="card-content">
+                                        <h3>${card.title}</h3>
+                                        <p>${card.description}</p>
+                                        <div class="card-details">
+                                            <h4><i class="${card.detailsIcon}"></i> ${card.detailsTitle}</h4>
+                                            <ul>
+                                                ${card.detailsItems.map(item => `<li>${item}</li>`).join('')}
+                                            </ul>
+                                        </div>
+                                        <div class="card-actions">
+                                            <button class="card-btn save"><i class="fas fa-bookmark"></i> Save</button>
+                                            <button class="card-btn"><i class="fas fa-share-alt"></i> Share</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                        
+                        <center>
+                            <a href="#" class="back-btn" onclick="window.close(); return false;">
+                                <i class="fas fa-arrow-left"></i> Back to Main Site
+                            </a>
+                        </center>
+                    </div>
+                    
+                    <script>
+                        function downloadChart(chartName) {
+                            // Create a temporary element for the download animation
+                            const tempEl = document.createElement('div');
+                            tempEl.style.position = 'fixed';
+                            tempEl.style.top = '0';
+                            tempEl.style.left = '0';
+                            tempEl.style.width = '100%';
+                            tempEl.style.height = '100%';
+                            tempEl.style.background = 'rgba(44, 111, 187, 0.9)';
+                            tempEl.style.display = 'flex';
+                            tempEl.style.alignItems = 'center';
+                            tempEl.style.justifyContent = 'center';
+                            tempEl.style.zIndex = '2000';
+                            tempEl.style.opacity = '0';
+                            tempEl.style.transition = 'opacity 0.3s ease';
+                            
+                            tempEl.innerHTML = \`
+                                <div style="text-align: center; color: white;">
+                                    <i class="fas fa-download" style="font-size: 60px; margin-bottom: 20px;"></i>
+                                    <h2 style="font-size: 28px; margin-bottom: 10px;">Downloading \${chartName}</h2>
+                                    <p>Your download will begin shortly...</p>
+                                </div>
+                            \`;
+                            
+                            document.body.appendChild(tempEl);
+                            
+                            // Fade in
+                            setTimeout(() => {
+                                tempEl.style.opacity = '1';
+                            }, 10);
+                            
+                            // Simulate download and fade out
+                            setTimeout(() => {
+                                tempEl.style.opacity = '0';
+                                setTimeout(() => {
+                                    document.body.removeChild(tempEl);
+                                    
+                                    // Create and trigger actual download
+                                    const element = document.createElement('a');
+                                    element.setAttribute('href', 'data:text/plain;charset=utf-8,This is a simulated download. In a real application, this would be your fitness plan.');
+                                    element.setAttribute('download', \`\${chartName.replace(/\\s+/g, '_')}.txt\`);
+                                    element.style.display = 'none';
+                                    document.body.appendChild(element);
+                                    element.click();
+                                    document.body.removeChild(element);
+                                }, 300);
+                            }, 1500);
+                        }
+                    <\/script>
+                </body>
+                </html>
+            `);
+            
+            planWindow.document.close();
+        }
+        
+        // Get plan data based on plan name
+        function getPlanData(planName) {
+            const plans = {
+                'six-pack': {
+                    title: 'Six Pack Abs Plan',
+                    description: 'Targeted workouts and nutrition plan for defined abdominal muscles',
+                    cards: [
+                        {
+                            icon: 'fas fa-egg',
+                            title: 'High-Protein Breakfast',
+                            description: 'Start your day with protein-rich foods to fuel your muscles',
+                            detailsIcon: 'fas fa-utensils',
+                            detailsTitle: 'Recommendations',
+                            detailsItems: [
+                                '2-3 eggs with vegetables',
+                                'Greek yogurt with berries',
+                                'Protein shake with almond milk'
+                            ]
+                        },
+                        {
+                            icon: 'fas fa-drumstick-bite',
+                            title: 'Lean Protein Lunch',
+                            description: 'Maintain muscle mass with lean protein sources',
+                            detailsIcon: 'fas fa-utensils',
+                            detailsTitle: 'Recommendations',
+                            detailsItems: [
+                                'Grilled chicken breast',
+                                'Quinoa or brown rice',
+                                'Steamed vegetables',
+                                'Green salad'
+                            ]
+                        },
+                        {
+                            icon: 'fas fa-fire',
+                            title: 'Core Workout',
+                            description: 'Targeted exercises for abdominal muscles',
+                            detailsIcon: 'fas fa-running',
+                            detailsTitle: 'Workout Plan',
+                            detailsItems: [
+                                'Plank: 3 sets of 60 seconds',
+                                'Russian twists: 3 sets of 20 reps',
+                                'Leg raises: 3 sets of 15 reps',
+                                'Bicycle crunches: 3 sets of 30 seconds'
+                            ]
+                        }
+                    ]
+                },
+                'muscle-gain': {
+                    title: 'Muscle Gain Plan',
+                    description: 'Strength training and calorie surplus diet for muscle growth',
+                    cards: [
+                        {
+                            icon: 'fas fa-egg',
+                            title: 'Calorie Surplus Diet',
+                            description: 'Increase your calorie intake to support muscle growth',
+                            detailsIcon: 'fas fa-utensils',
+                            detailsTitle: 'Recommendations',
+                            detailsItems: [
+                                'Lean protein sources',
+                                'Complex carbohydrates',
+                                'Healthy fats',
+                                'Protein supplements'
+                            ]
+                        },
+                        {
+                            icon: 'fas fa-dumbbell',
+                            title: 'Strength Training',
+                            description: 'Build muscle with progressive overload',
+                            detailsIcon: 'fas fa-running',
+                            detailsTitle: 'Workout Plan',
+                            detailsItems: [
+                                'Compound movements: 4 sets of 8-12 reps',
+                                'Isolation exercises: 3 sets of 10-15 reps',
+                                'Progressive weight increase',
+                                'Proper rest between sets'
+                            ]
+                        },
+                        {
+                            icon: 'fas fa-bed',
+                            title: 'Recovery & Rest',
+                            description: 'Maximize muscle growth with proper recovery',
+                            detailsIcon: 'fas fa-moon',
+                            detailsTitle: 'Recommendations',
+                            detailsItems: [
+                                '7-9 hours of sleep per night',
+                                'Active recovery days',
+                                'Proper hydration',
+                                'Post-workout nutrition'
+                            ]
+                        }
+                    ]
+                },
+                'weight-loss': {
+                    title: 'Weight Loss Plan',
+                    description: 'Calorie deficit diet and fat-burning workouts',
+                    cards: [
+                        {
+                            icon: 'fas fa-apple-alt',
+                            title: 'Calorie Deficit Diet',
+                            description: 'Reduce calorie intake while maintaining nutrition',
+                            detailsIcon: 'fas fa-utensils',
+                            detailsTitle: 'Recommendations',
+                            detailsItems: [
+                                'Portion control',
+                                'High-fiber foods',
+                                'Lean proteins',
+                                'Limited processed foods'
+                            ]
+                        },
+                        {
+                            icon: 'fas fa-running',
+                            title: 'Fat-Burning Workouts',
+                            description: 'Exercises designed to maximize fat loss',
+                            detailsIcon: 'fas fa-fire',
+                            detailsTitle: 'Workout Plan',
+                            detailsItems: [
+                                'HIIT workouts 3-4 times per week',
+                                'Cardio sessions 2-3 times per week',
+                                'Strength training to maintain muscle',
+                                'Active recovery days'
+                            ]
+                        },
+                        {
+                            icon: 'fas fa-tint',
+                            title: 'Hydration Plan',
+                            description: 'Stay hydrated to support metabolism',
+                            detailsIcon: 'fas fa-glass-whiskey',
+                            detailsTitle: 'Recommendations',
+                            detailsItems: [
+                                '8-10 glasses of water daily',
+                                'Herbal teas',
+                                'Limit sugary drinks',
+                                'Electrolyte balance'
+                            ]
+                        }
+                    ]
+                },
+                'strength-training': {
+                    title: 'Strength Training Plan',
+                    description: 'Build functional strength with compound movements',
+                    cards: [
+                        {
+                            icon: 'fas fa-dumbbell',
+                            title: 'Progressive Overload',
+                            description: 'Gradually increase resistance for continuous growth',
+                            detailsIcon: 'fas fa-chart-line',
+                            detailsTitle: 'Training Principles',
+                            detailsItems: [
+                                'Increase weight gradually',
+                                'Track your progress',
+                                'Focus on form',
+                                'Allow for recovery'
+                            ]
+                        },
+                        {
+                            icon: 'fas fa-utensils',
+                            title: 'Strength Nutrition',
+                            description: 'Fuel your body for maximum performance',
+                            detailsIcon: 'fas fa-utensils',
+                            detailsTitle: 'Diet Recommendations',
+                            detailsItems: [
+                                'High protein intake',
+                                'Complex carbohydrates',
+                                'Healthy fats',
+                                'Proper timing of meals'
+                            ]
+                        },
+                        {
+                            icon: 'fas fa-bed',
+                            title: 'Recovery Protocol',
+                            description: 'Maximize strength gains with proper recovery',
+                            detailsIcon: 'fas fa-moon',
+                            detailsTitle: 'Recovery Tips',
+                            detailsItems: [
+                                '7-9 hours of sleep',
+                                'Active recovery',
+                                'Stretching and mobility',
+                                'Proper rest between sessions'
+                            ]
+                        }
+                    ]
+                },
+                'cardio-stamina': {
+                    title: 'Cardio Stamina Plan',
+                    description: 'Improve endurance with targeted cardiovascular training',
+                    cards: [
+                        {
+                            icon: 'fas fa-heart',
+                            title: 'Cardiovascular Training',
+                            description: 'Build endurance with varied cardio workouts',
+                            detailsIcon: 'fas fa-running',
+                            detailsTitle: 'Training Plan',
+                            detailsItems: [
+                                'Interval training 3 times per week',
+                                'Steady-state cardio 2 times per week',
+                                'Gradual intensity increase',
+                                'Cross-training variety'
+                            ]
+                        },
+                        {
+                            icon: 'fas fa-utensils',
+                            title: 'Endurance Nutrition',
+                            description: 'Fuel your body for sustained energy',
+                            detailsIcon: 'fas fa-utensils',
+                            detailsTitle: 'Diet Recommendations',
+                            detailsItems: [
+                                'Complex carbohydrates',
+                                'Adequate protein',
+                                'Healthy fats',
+                                'Hydration focus'
+                            ]
+                        },
+                        {
+                            icon: 'fas fa-lungs',
+                            title: 'Breathing Techniques',
+                            description: 'Improve oxygen efficiency during exercise',
+                            detailsIcon: 'fas fa-wind',
+                            detailsTitle: 'Breathing Exercises',
+                            detailsItems: [
+                                'Diaphragmatic breathing',
+                                'Rhythmic breathing patterns',
+                                'Altitude simulation',
+                                'Recovery breathing'
+                            ]
+                        }
+                    ]
+                },
+                'full-body': {
+                    title: 'Full Body Workout Plan',
+                    description: 'Complete fitness program for overall body transformation',
+                    cards: [
+                        {
+                            icon: 'fas fa-dumbbell',
+                            title: 'Compound Exercises',
+                            description: 'Work multiple muscle groups simultaneously',
+                            detailsIcon: 'fas fa-running',
+                            detailsTitle: 'Exercise Selection',
+                            detailsItems: [
+                                'Squats and deadlifts',
+                                'Bench press and rows',
+                                'Overhead presses',
+                                'Pull-ups and dips'
+                            ]
+                        },
+                        {
+                            icon: 'fas fa-utensils',
+                            title: 'Balanced Nutrition',
+                            description: 'Support overall health and fitness goals',
+                            detailsIcon: 'fas fa-utensils',
+                            detailsTitle: 'Diet Plan',
+                            detailsItems: [
+                                'Macro-balanced meals',
+                                'Whole foods focus',
+                                'Adequate hydration',
+                                'Meal timing strategy'
+                            ]
+                        },
+                        {
+                            icon: 'fas fa-balance-scale',
+                            title: 'Recovery Balance',
+                            description: 'Optimize recovery for consistent progress',
+                            detailsIcon: 'fas fa-bed',
+                            detailsTitle: 'Recovery Protocol',
+                            detailsItems: [
+                                'Adequate sleep',
+                                'Active recovery days',
+                                'Stretching routine',
+                                'Stress management'
+                            ]
+                        }
+                    ]
+                },
+                'immunity': {
+                    title: 'Immunity Boost Plan',
+                    description: 'Strengthen your immune system with targeted nutrition',
+                    cards: [
+                        {
+                            icon: 'fas fa-shield-alt',
+                            title: 'Immune-Boosting Foods',
+                            description: 'Nutrition to support your immune system',
+                            detailsIcon: 'fas fa-utensils',
+                            detailsTitle: 'Diet Recommendations',
+                            detailsItems: [
+                                'Citrus fruits and berries',
+                                'Leafy green vegetables',
+                                'Garlic and ginger',
+                                'Yogurt and fermented foods'
+                            ]
+                        },
+                        {
+                            icon: 'fas fa-heart',
+                            title: 'Lifestyle Factors',
+                            description: 'Habits that support immune health',
+                            detailsIcon: 'fas fa-running',
+                            detailsTitle: 'Healthy Habits',
+                            detailsItems: [
+                                'Regular moderate exercise',
+                                'Adequate sleep',
+                                'Stress reduction techniques',
+                                'Good hygiene practices'
+                            ]
+                        },
+                        {
+                            icon: 'fas fa-capsules',
+                            title: 'Supplement Support',
+                            description: 'Supplements to enhance immune function',
+                            detailsIcon: 'fas fa-pills',
+                            detailsTitle: 'Supplement Guide',
+                            detailsItems: [
+                                'Vitamin D',
+                                'Vitamin C',
+                                'Zinc',
+                                'Probiotics'
+                            ]
+                        }
+                    ]
+                },
+                'skin-glow': {
+                    title: 'Skin Glow Plan',
+                    description: 'Nutrition plan for radiant, healthy skin',
+                    cards: [
+                        {
+                            icon: 'fas fa-spa',
+                            title: 'Skin-Nourishing Foods',
+                            description: 'Nutrition for healthy, glowing skin',
+                            detailsIcon: 'fas fa-utensils',
+                            detailsTitle: 'Diet Recommendations',
+                            detailsItems: [
+                                'Foods rich in antioxidants',
+                                'Omega-3 fatty acids',
+                                'Vitamin C-rich foods',
+                                'Adequate hydration'
+                            ]
+                        },
+                        {
+                            icon: 'fas fa-soap',
+                            title: 'Skincare Routine',
+                            description: 'External care for your skin',
+                            detailsIcon: 'fas fa-hand-sparkles',
+                            detailsTitle: 'Skincare Tips',
+                            detailsItems: [
+                                'Gentle cleansing',
+                                'Regular exfoliation',
+                                'Moisturizing',
+                                'Sun protection'
+                            ]
+                        },
+                        {
+                            icon: 'fas fa-bed',
+                            title: 'Beauty Sleep',
+                            description: 'How sleep affects your skin health',
+                            detailsIcon: 'fas fa-moon',
+                            detailsTitle: 'Sleep Tips',
+                            detailsItems: [
+                                '7-9 hours of quality sleep',
+                                'Consistent sleep schedule',
+                                'Sleeping position matters',
+                                'Pillcase hygiene'
+                            ]
+                        }
+                    ]
+                },
+                'heart-health': {
+                    title: 'Heart Health Plan',
+                    description: 'Diet and exercise for cardiovascular wellness',
+                    cards: [
+                        {
+                            icon: 'fas fa-heart',
+                            title: 'Heart-Healthy Diet',
+                            description: 'Nutrition for cardiovascular health',
+                            detailsIcon: 'fas fa-utensils',
+                            detailsTitle: 'Diet Recommendations',
+                            detailsItems: [
+                                'Foods low in saturated fat',
+                                'High fiber intake',
+                                'Omega-3 fatty acids',
+                                'Limited sodium'
+                            ]
+                        },
+                        {
+                            icon: 'fas fa-running',
+                            title: 'Cardiovascular Exercise',
+                            description: 'Exercise for heart health',
+                            detailsIcon: 'fas fa-heartbeat',
+                            detailsTitle: 'Exercise Plan',
+                            detailsItems: [
+                                '150 minutes moderate exercise weekly',
+                                'Variety of cardio activities',
+                                'Interval training benefits',
+                                'Consistency over intensity'
+                            ]
+                        },
+                        {
+                            icon: 'fas fa-tint',
+                            title: 'Blood Pressure Management',
+                            description: 'Maintain healthy blood pressure levels',
+                            detailsIcon: 'fas fa-prescription-bottle',
+                            detailsTitle: 'Management Tips',
+                            detailsItems: [
+                                'Regular monitoring',
+                                'Stress reduction',
+                                'Limit alcohol',
+                                'Medication compliance if needed'
+                            ]
+                        }
+                    ]
+                },
+                'stress-relief': {
+                    title: 'Stress Relief Plan',
+                    description: 'Techniques and nutrition to reduce stress',
+                    cards: [
+                        {
+                            icon: 'fas fa-cloud-sun',
+                            title: 'Stress-Reducing Foods',
+                            description: 'Nutrition to combat stress',
+                            detailsIcon: 'fas fa-utensils',
+                            detailsTitle: 'Diet Recommendations',
+                            detailsItems: [
+                                'Complex carbohydrates',
+                                'Foods rich in magnesium',
+                                'Omega-3 fatty acids',
+                                'Vitamin C-rich foods'
+                            ]
+                        },
+                        {
+                            icon: 'fas fa-spa',
+                            title: 'Relaxation Techniques',
+                            description: 'Methods to reduce stress',
+                            detailsIcon: 'fas fa-yin-yang',
+                            detailsTitle: 'Relaxation Methods',
+                            detailsItems: [
+                                'Deep breathing exercises',
+                                'Meditation practice',
+                                'Yoga or stretching',
+                                'Mindfulness techniques'
+                            ]
+                        },
+                        {
+                            icon: 'fas fa-bed',
+                            title: 'Sleep Optimization',
+                            description: 'Improve sleep to reduce stress',
+                            detailsIcon: 'fas fa-moon',
+                            detailsTitle: 'Sleep Tips',
+                            detailsItems: [
+                                'Consistent sleep schedule',
+                                'Relaxing bedtime routine',
+                                'Optimal sleep environment',
+                                'Limit screen time before bed'
+                            ]
+                        }
+                    ]
+                },
+                'sleep-improvement': {
+                    title: 'Sleep Improvement Plan',
+                    description: 'Better sleep through diet and lifestyle changes',
+                    cards: [
+                        {
+                            icon: 'fas fa-bed',
+                            title: 'Sleep-Inducing Nutrition',
+                            description: 'Foods that promote better sleep',
+                            detailsIcon: 'fas fa-utensils',
+                            detailsTitle: 'Diet Recommendations',
+                            detailsItems: [
+                                'Foods rich in tryptophan',
+                                'Complex carbohydrates',
+                                'Magnesium-rich foods',
+                                'Herbal teas'
+                            ]
+                        },
+                        {
+                            icon: 'fas fa-moon',
+                            title: 'Bedtime Routine',
+                            description: 'Establish habits for better sleep',
+                            detailsIcon: 'fas fa-spa',
+                            detailsTitle: 'Routine Tips',
+                            detailsItems: [
+                                'Consistent sleep schedule',
+                                'Relaxing pre-sleep activities',
+                                'Digital detox before bed',
+                                'Optimal bedroom environment'
+                            ]
+                        },
+                        {
+                            icon: 'fas fa-running',
+                            title: 'Exercise for Sleep',
+                            description: 'How physical activity improves sleep',
+                            detailsIcon: 'fas fa-heartbeat',
+                            detailsTitle: 'Exercise Recommendations',
+                            detailsItems: [
+                                'Regular moderate exercise',
+                                'Timing of workouts',
+                                'Yoga or stretching',
+                                'Avoid intense exercise before bed'
+                            ]
+                        }
+                    ]
+                },
+                'digestive-health': {
+                    title: 'Digestive Health Plan',
+                    description: 'Nutrition plan for optimal gut health',
+                    cards: [
+                        {
+                            icon: 'fas fa-apple-alt',
+                            title: 'Gut-Healthy Foods',
+                            description: 'Nutrition for digestive wellness',
+                            detailsIcon: 'fas fa-utensils',
+                            detailsTitle: 'Diet Recommendations',
+                            detailsItems: [
+                                'High-fiber foods',
+                                'Fermented foods',
+                                'Prebiotic foods',
+                                'Adequate hydration'
+                            ]
+                        },
+                        {
+                            icon: 'fas fa-glass-whiskey',
+                            title: 'Hydration for Digestion',
+                            description: 'How water supports digestive health',
+                            detailsIcon: 'fas fa-tint',
+                            detailsTitle: 'Hydration Tips',
+                            detailsItems: [
+                                'Adequate water intake',
+                                'Timing of fluid consumption',
+                                'Herbal teas benefits',
+                                'Limit dehydrating beverages'
+                            ]
+                        },
+                        {
+                            icon: 'fas fa-heart',
+                            title: 'Lifestyle Factors',
+                            description: 'Habits that support digestive health',
+                            detailsIcon: 'fas fa-running',
+                            detailsTitle: 'Healthy Habits',
+                            detailsItems: [
+                                'Regular physical activity',
+                                'Stress management',
+                                'Adequate sleep',
+                                'Mindful eating practices'
+                            ]
+                        }
+                    ]
+                }
+            };
+            
+            return plans[planName] || plans['six-pack']; // Default to six-pack if plan not found
+        }
+        
+        // Reviews slider functionality
+        function initReviewsSlider() {
+            const slider = document.getElementById('reviews-slider');
+            const prevBtn = document.getElementById('prev-review');
+            const nextBtn = document.getElementById('next-review');
+            
+            let isDown = false;
+            let startX;
+            let scrollLeft;
+            
+            // Mouse events for dragging
+            slider.addEventListener('mousedown', (e) => {
+                isDown = true;
+                startX = e.pageX - slider.offsetLeft;
+                scrollLeft = slider.scrollLeft;
+            });
+            
+            slider.addEventListener('mouseleave', () => {
+                isDown = false;
+            });
+            
+            slider.addEventListener('mouseup', () => {
+                isDown = false;
+            });
+            
+            slider.addEventListener('mousemove', (e) => {
+                if (!isDown) return;
+                e.preventDefault();
+                const x = e.pageX - slider.offsetLeft;
+                const walk = (x - startX) * 2;
+                slider.scrollLeft = scrollLeft - walk;
+            });
+            
+            // Touch events for mobile
+            slider.addEventListener('touchstart', (e) => {
+                isDown = true;
+                startX = e.touches[0].pageX - slider.offsetLeft;
+                scrollLeft = slider.scrollLeft;
+            }, { passive: true });
+            
+            slider.addEventListener('touchend', () => {
+                isDown = false;
+            });
+            
+            slider.addEventListener('touchmove', (e) => {
+                if (!isDown) return;
+                const x = e.touches[0].pageX - slider.offsetLeft;
+                const walk = (x - startX) * 2;
+                slider.scrollLeft = scrollLeft - walk;
+            }, { passive: true });
+            
+            // Button controls
+            prevBtn.addEventListener('click', () => {
+                slider.scrollBy({ left: -330, behavior: 'smooth' });
+            });
+            
+            nextBtn.addEventListener('click', () => {
+                slider.scrollBy({ left: 330, behavior: 'smooth' });
+            });
+        }
+        
+        // Auth modal functionality
+        function openModal(type) {
+            closeModal();
+            setTimeout(() => {
+                document.getElementById(`${type}-modal`).classList.add('active');
+            }, 10);
+        }
+        
+        function closeModal() {
+            document.querySelectorAll('.modal').forEach(modal => {
+                modal.classList.remove('active');
+            });
+            
+            // Clear form errors
+            document.querySelectorAll('.form-group').forEach(group => {
+                group.classList.remove('error');
+            });
+        }
+        
+        function switchAuth(type) {
+            closeModal();
+            setTimeout(() => openModal(type), 300);
+        }
+        
+        // Close modal when clicking outside
+        document.querySelectorAll('.modal').forEach(modal => {
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    closeModal();
+                }
+            });
+        });
+        
+        // Form validation
+        document.getElementById('login-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            let isValid = true;
+            
+            const username = document.getElementById('login-username');
+            const password = document.getElementById('login-password');
+            
+            // Validate username
+            if (username.value.trim() === '') {
+                document.getElementById('login-username-error').textContent = 'Username or email is required';
+                username.parentElement.classList.add('error');
+                isValid = false;
+            } else {
+                username.parentElement.classList.remove('error');
+            }
+            
+            // Validate password
+            if (password.value.trim() === '') {
+                document.getElementById('login-password-error').textContent = 'Password is required';
+                password.parentElement.classList.add('error');
+                isValid = false;
+            } else {
+                password.parentElement.classList.remove('error');
+            }
+            
+            if (isValid) {
+                // Simulate login process
+                alert('Login successful! Welcome back to Vitality Plus.');
+                closeModal();
+            }
+        });
+        
+        document.getElementById('signup-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            let isValid = true;
+            
+            const name = document.getElementById('signup-name');
+            const username = document.getElementById('signup-username');
+            const email = document.getElementById('signup-email');
+            const password = document.getElementById('signup-password');
+            const confirm = document.getElementById('signup-confirm');
+            
+            // Validate name
+            if (name.value.trim() === '') {
+                document.getElementById('signup-name-error').textContent = 'Full name is required';
+                name.parentElement.classList.add('error');
+                isValid = false;
+            } else {
+                name.parentElement.classList.remove('error');
+            }
+            
+            // Validate username
+            if (username.value.trim() === '') {
+                document.getElementById('signup-username-error').textContent = 'Username is required';
+                username.parentElement.classList.add('error');
+                isValid = false;
+            } else if (username.value.length < 3) {
+                document.getElementById('signup-username-error').textContent = 'Username must be at least 3 characters';
+                username.parentElement.classList.add('error');
+                isValid = false;
+            } else {
+                username.parentElement.classList.remove('error');
+            }
+            
+            // Validate email
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (email.value.trim() === '') {
+                document.getElementById('signup-email-error').textContent = 'Email is required';
+                email.parentElement.classList.add('error');
+                isValid = false;
+            } else if (!emailRegex.test(email.value)) {
+                document.getElementById('signup-email-error').textContent = 'Please enter a valid email';
+                email.parentElement.classList.add('error');
+                isValid = false;
+            } else {
+                email.parentElement.classList.remove('error');
+            }
+            
+            // Validate password
+            if (password.value.trim() === '') {
+                document.getElementById('signup-password-error').textContent = 'Password is required';
+                password.parentElement.classList.add('error');
+                isValid = false;
+            } else if (password.value.length < 6) {
+                document.getElementById('signup-password-error').textContent = 'Password must be at least 6 characters';
+                password.parentElement.classList.add('error');
+                isValid = false;
+            } else {
+                password.parentElement.classList.remove('error');
+            }
+            
+            // Validate confirm password
+            if (confirm.value.trim() === '') {
+                document.getElementById('signup-confirm-error').textContent = 'Please confirm your password';
+                confirm.parentElement.classList.add('error');
+                isValid = false;
+            } else if (confirm.value !== password.value) {
+                document.getElementById('signup-confirm-error').textContent = 'Passwords do not match';
+                confirm.parentElement.classList.add('error');
+                isValid = false;
+            } else {
+                confirm.parentElement.classList.remove('error');
+            }
+            
+            if (isValid) {
+                // Simulate signup process
+                alert('Account created successfully! Welcome to Vitality Plus.');
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>
